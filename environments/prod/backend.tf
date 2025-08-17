@@ -1,9 +1,12 @@
 terraform {
+  required_version = ">= 1.11"
+
   backend "s3" {
-    bucket         = "suman-tf-state-prod-s3" #version controlled remote backend
-    key            = "eks/terraform.tfstate"
-    region         = "eu-west-1"
-    dynamodb_table = "suman-tf-state-prod-lock"  # DynamoDB table for state locking
-    encrypt        = true                    # optional, encrypt state in S3
+    bucket       = "suman-tf-state-prod"
+    key          = "eks/terraform.tfstate"
+    region       = "eu-west-1"
+    encrypt      = true
+    use_lockfile = true
   }
 }
+
