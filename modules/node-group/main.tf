@@ -11,9 +11,9 @@ resource "aws_eks_node_group" "this" {
   }
 
   disk_size      = var.config.disk_size_gb
-  ami_type       = "AL2023_x86_64_STANDARD" # modern default; switch to BOTTLEROCKET_x86_64 if preferred
-  capacity_type  = "ON_DEMAND"              # change to "SPOT" for spot groups
   instance_types = var.config.instance_types
+  ami_type       = "AL2023_x86_64_STANDARD"
+  capacity_type  = "ON_DEMAND"
   version        = var.cluster_version
 
   dynamic "labels" {
@@ -37,8 +37,4 @@ resource "aws_eks_node_group" "this" {
   }
 
   tags = var.tags
-}
-
-output "node_group_name" {
-  value = aws_eks_node_group.this.node_group_name
 }
