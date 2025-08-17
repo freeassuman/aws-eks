@@ -1,14 +1,15 @@
-variable "cluster_name" {
-     type = string 
-     }
-variable "cluster_version" {
-     type = string
-     }
 variable "addon_names" {
-     type = list(string) 
-     }
-variable "tags" {
-  type    = map(string)
-  default = {}
+  description = "List of EKS managed add-ons"
+  type        = list(string)
+  default = [
+    "vpc-cni",
+    "coredns",
+    "kube-proxy",
+    "amazon-cloudwatch-observability",
+    "amazon-efs-csi-driver",
+    "eks-pod-identity-agent",
+    "guardduty-agent",
+    "metrics-server",
+    "cert-manager"
+  ]
 }
-
