@@ -14,10 +14,13 @@ resource "aws_eks_addon" "this" {
   resolve_conflicts_on_create = "OVERWRITE"
   resolve_conflicts_on_update = "OVERWRITE"
 
-  dynamic "configuration_values" {
-    for_each = each.key == "vpc-cni" ? [1] : []
-    content  = jsonencode({ env = { ENABLE_PREFIX_DELEGATION = "true" } })
-  }
+  # Only set configuration_values for vpc-cni addon
+  configuration_values = each.key == "vpc-cni" ? jsonencode({
+    env = {
+      ENABLE_PREFIX_DELEGATION = "true"
+    }
+  }) : null
 
   tags = var.tags
 }
+
