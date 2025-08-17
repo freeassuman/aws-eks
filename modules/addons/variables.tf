@@ -21,9 +21,7 @@ variable "addon_names" {
     "coredns",
     "kube-proxy",
     "amazon-cloudwatch-observability",
-    "amazon-efs-csi-driver",
     "eks-pod-identity-agent",
-    "guardduty-agent",
     "metrics-server",
     "cert-manager"
   ]
