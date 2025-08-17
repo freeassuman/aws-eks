@@ -50,7 +50,7 @@ security-scan-test:
     - ./tfsec $TF_ROOT/test || true
   allow_failure: false
 
-test-plan:
+.test-plan:
   stage: test-plan
   tags: *default_tags
   script:
@@ -68,7 +68,7 @@ test-plan:
       - $TF_ROOT/test/.terraform/
     expire_in: 1 hour
 
-test-apply:
+.test-apply:
   stage: test-apply
   tags: *default_tags
   script:
@@ -98,7 +98,7 @@ test-destroy:
   when: manual
   allow_failure: false
 
-prod-validate:
+.prod-validate:
   stage: prod-validate
   tags:
   - pltest
@@ -113,7 +113,7 @@ prod-validate:
   environment:
     name: prod
 
-security-scan-prod:
+.security-scan-prod:
   stage: security-scan-prod
   tags:
   - pltest
@@ -126,7 +126,7 @@ security-scan-prod:
     - ./tfsec $TF_ROOT/prod || true
   allow_failure: false
 
-prod-plan:
+.prod-plan:
   stage: prod-plan
   tags:
   - pltest
@@ -149,7 +149,7 @@ prod-plan:
       - $TF_ROOT/prod/.terraform/
     expire_in: 1 hour
 
-prod-apply:
+.prod-apply:
   stage: prod-apply
   tags:
   - pltest
@@ -169,7 +169,7 @@ prod-apply:
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
 
-prod-destroy:
+.prod-destroy:
   stage: prod-destroy
   tags:
   - pltest
