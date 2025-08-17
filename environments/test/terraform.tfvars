@@ -24,3 +24,16 @@ tags = {
   Project = "demo-test"
   Owner   = "platform"
 }
+
+addon_names = [
+  "vpc-cni",
+  "coredns",
+  "kube-proxy",
+  "aws-ebs-csi-driver",
+  "amazon-cloudwatch-observability",
+  "amazon-efs-csi-driver",
+  "guardduty-agent",
+  "metrics-server",
+  "cert-manager"
+]
+
