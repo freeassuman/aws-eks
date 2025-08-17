@@ -11,9 +11,9 @@ private_subnet_ids = [
 
 node_groups = {
   ng-general = {
-    min_size       = 2
-    max_size       = 6
-    desired_size   = 3
+    min_size       = 0
+    max_size       = 2
+    desired_size   = 1
     instance_types = ["t3.medium"]
     disk_size_gb   = 50
     labels         = { role = "general" }
