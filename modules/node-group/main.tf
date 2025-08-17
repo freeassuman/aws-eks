@@ -16,13 +16,10 @@ resource "aws_eks_node_group" "this" {
   capacity_type  = "ON_DEMAND"
   version        = var.cluster_version
 
-  dynamic "labels" {
-    for_each = length(var.config.labels) > 0 ? [1] : []
-    content {
-      labels = var.config.labels
-    }
-  }
+  # Labels are a map attribute, not a block
+  labels = length(var.config.labels) > 0 ? var.config.labels : null
 
+  # Taints can still be dynamic
   dynamic "taint" {
     for_each = var.config.taints
     content {
