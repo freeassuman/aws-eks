@@ -14,7 +14,7 @@ resource "aws_eks_addon" "this" {
   resolve_conflicts_on_create = "OVERWRITE"
   resolve_conflicts_on_update = "OVERWRITE"
 
-  # Only set configuration_values for vpc-cni addon
+  # Example: enable prefix delegation only for VPC-CNI
   configuration_values = each.key == "vpc-cni" ? jsonencode({
     env = {
       ENABLE_PREFIX_DELEGATION = "true"
@@ -23,4 +23,5 @@ resource "aws_eks_addon" "this" {
 
   tags = var.tags
 }
+
 
