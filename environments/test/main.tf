@@ -3,14 +3,15 @@ locals {
 }
 
 module "eks" {
-  source           = "../../modules/eks"
-  cluster_name     = var.cluster_name
-  cluster_version  = var.cluster_version
-  vpc_id           = var.vpc_id
-  subnet_ids       = local.subnets_for_cluster
+  source            = "../../modules/eks"
+  cluster_name      = var.cluster_name
+  cluster_version   = var.cluster_version
+  vpc_id            = var.vpc_id
+  subnet_ids        = local.subnets_for_cluster
   cluster_log_types = var.cluster_log_types
-  tags             = var.tags
+  tags              = var.tags
 }
+
 
 module "node_groups" {
   source          = "../../modules/node-group"
