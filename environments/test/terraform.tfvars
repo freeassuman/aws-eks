@@ -30,8 +30,6 @@ addon_names = [
   "coredns",
   "kube-proxy",
   "amazon-cloudwatch-observability",
-  "amazon-efs-csi-driver",
-  "guardduty-agent",
   "metrics-server",
   "cert-manager"
 ]
