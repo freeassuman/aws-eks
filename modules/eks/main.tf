@@ -12,9 +12,14 @@ resource "aws_iam_role" "eks" {
 data "aws_iam_policy_document" "eks_assume" {
   statement {
     actions = ["sts:AssumeRole"]
-    principals { type = "Service" identifiers = ["eks.amazonaws.com"] }
+
+    principals {
+      type        = "Service"
+      identifiers = ["eks.amazonaws.com"]
+    }
   }
 }
+
 
 resource "aws_iam_role_policy_attachment" "eks_cluster_policy" {
   role       = aws_iam_role.eks.name
@@ -59,7 +64,11 @@ resource "aws_iam_role" "nodes" {
 data "aws_iam_policy_document" "nodes_assume" {
   statement {
     actions = ["sts:AssumeRole"]
-    principals { type = "Service" identifiers = ["ec2.amazonaws.com"] }
+
+    principals {
+      type        = "Service"
+      identifiers = ["ec2.amazonaws.com"]
+    }
   }
 }
 
