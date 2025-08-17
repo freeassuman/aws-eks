@@ -3,7 +3,7 @@ locals {
 }
 
 module "eks" {
-  source           = "./modules/eks"
+  source           = "../../modules/eks"
   cluster_name     = var.cluster_name
   cluster_version  = var.cluster_version
   vpc_id           = var.vpc_id
@@ -13,7 +13,7 @@ module "eks" {
 }
 
 module "node_groups" {
-  source          = "./modules/node-group"
+  source          = "../../modules/node-group"
   for_each        = var.node_groups
   cluster_name    = module.eks.cluster_name
   cluster_version = var.cluster_version
@@ -25,7 +25,7 @@ module "node_groups" {
 }
 
 module "addons" {
-  source          = "./modules/addons"
+  source          = "../../modules/addons"
   cluster_name    = module.eks.cluster_name
   cluster_version = var.cluster_version
   addon_names     = var.addon_names
