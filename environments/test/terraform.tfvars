@@ -1,6 +1,6 @@
 region          = "eu-west-1"
 cluster_name    = "suman-eks-test"
-cluster_version = "1.32"
+cluster_version = "1.30"
 vpc_id          = "vpc-027857c7c38740a74"
 
 private_subnet_ids = [
@@ -9,7 +9,7 @@ private_subnet_ids = [
 ]
 
 node_groups = {
-  ng-general = {
+  ng-suman-eks-test = {
     min_size       = 0
     max_size       = 2
     desired_size   = 1
@@ -29,7 +29,6 @@ addon_names = [
   "vpc-cni",
   "coredns",
   "kube-proxy",
-  "aws-ebs-csi-driver",
   "amazon-cloudwatch-observability",
   "amazon-efs-csi-driver",
   "guardduty-agent",
