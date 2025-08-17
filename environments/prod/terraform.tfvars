@@ -1,6 +1,6 @@
 region          = "eu-west-1"
 cluster_name    = "suman-eks-prod"
-cluster_version = "1.32"
+cluster_version = "1.30"
 vpc_id          = "vpc-027857c7c38740a74"
 
 private_subnet_ids = [
@@ -9,7 +9,7 @@ private_subnet_ids = [
 ]
 
 node_groups = {
-  ng-general = {
+  ng-suman-eks-prod = {
     min_size       = 0
     max_size       = 2
     desired_size   = 1
@@ -24,3 +24,13 @@ tags = {
   Project = "demo-prod"
   Owner   = "platform"
 }
+
+addon_names = [
+  "vpc-cni",
+  "coredns",
+  "kube-proxy",
+  "amazon-cloudwatch-observability",
+  "metrics-server",
+  "cert-manager"
+]
+
