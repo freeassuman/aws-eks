@@ -8,11 +8,6 @@ variable "cluster_version" {
   type        = string
 }
 
-variable "addon_names" {
-  description = "List of EKS managed add-ons to enable"
-  type        = list(string)
-}
-
 variable "tags" {
   description = "Tags to apply to the add-ons"
   type        = map(string)
