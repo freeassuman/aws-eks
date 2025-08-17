@@ -1,8 +1,7 @@
-region         = "eu-west-1"
-cluster_name   = "suman-eks-test"
+region          = "eu-west-1"
+cluster_name    = "suman-eks-test"
 cluster_version = "1.32"
-
-vpc_id = "vpc-027857c7c38740a74"
+vpc_id          = "vpc-027857c7c38740a74"
 
 private_subnet_ids = [
   "subnet-0920379bf86d5f976",
