@@ -1,21 +1,20 @@
 region         = "eu-west-1"
-cluster_name   = "demo-eks"
+cluster_name   = "suman-eks-dev"
 cluster_version = "1.32"
 
-vpc_id = "vpc-0123456789abcdef0"
+vpc_id = "vpc-027857c7c38740a74"
 
 private_subnet_ids = [
-  "subnet-0aaa1111bbb2222cc",
-  "subnet-0ddd3333eee4444ff",
-  "subnet-0555aaaabbbb6666c"
+  "subnet-0920379bf86d5f976",
+  "subnet-0db2e3e8339da2d96"
 ]
 
 node_groups = {
   ng-general = {
-    min_size       = 2
-    max_size       = 6
-    desired_size   = 3
-    instance_types = ["m6i.large"]
+    min_size       = 0
+    max_size       = 2
+    desired_size   = 1
+    instance_types = ["t3.medium"]
     disk_size_gb   = 50
     labels         = { role = "general" }
     taints         = []
@@ -23,6 +22,6 @@ node_groups = {
 }
 
 tags = {
-  Project = "demo"
+  Project = "demo-prod-dev"
   Owner   = "platform"
 }
