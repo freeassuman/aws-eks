@@ -90,6 +90,7 @@ test-destroy:
   - suman
   script:
     - cd $TF_ROOT/test
+    - terraform init
     - terraform destroy --auto-approve
   environment:
     name: test
