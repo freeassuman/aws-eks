@@ -1,5 +1,5 @@
 region          = "eu-west-1"
-cluster_name    = "suman-eks-test"
+cluster_name    = "suman-eks-prod"
 cluster_version = "1.32"
 vpc_id          = "vpc-027857c7c38740a74"
 
