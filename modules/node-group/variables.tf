@@ -1,9 +1,22 @@
-variable "cluster_name" { type = string }
-variable "cluster_version" { type = string }
-variable "subnet_ids" { type = list(string) }
-variable "node_group_name" { type = string }
-variable "node_role_arn" { type = string }
-variable "tags" { type = map(string) default = {} }
+variable "cluster_name" {
+   type = string 
+   }
+variable "cluster_version" {
+   type = string 
+   }
+variable "subnet_ids" {
+   type = list(string) 
+   }
+variable "node_group_name" {
+   type = string 
+   }
+variable "node_role_arn" {
+   type = string 
+   }
+variable "tags" {
+  type    = map(string)
+  default = {}
+}
 variable "config" {
   type = object({
     min_size       = number
